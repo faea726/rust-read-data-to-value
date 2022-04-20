@@ -1,0 +1,7 @@
+# Config basic values
+
+node:=bsc_node
+router_contract:=router_contract_string
+router_abi:=router_api_string
+factory_contract:=factory_contract_string
+factory_api:=factory_abi_string
