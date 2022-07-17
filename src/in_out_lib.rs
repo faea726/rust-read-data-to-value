@@ -1,10 +1,10 @@
-#[allow(dead_code)]
+// #[allow(dead_code)]
 use std::{collections::HashMap, fs};
 
-pub fn read_data_from_file(filename: &str) -> HashMap<String, String> {
+pub fn read_data_from_file(filename: &str, delimiter: &str) -> HashMap<String, String> {
     let contents = read_file(filename);
 
-    let data = convert_contents_to_data(contents);
+    let data = convert_contents_to_data(contents, delimiter);
     data
 }
 
@@ -12,11 +12,10 @@ struct Data {
     key: String,
     value: String,
 }
-fn convert_contents_to_data(contents: String) -> HashMap<String, String> {
+fn convert_contents_to_data(contents: String, delimiter: &str) -> HashMap<String, String> {
     let lines: Vec<&str> = contents.lines().collect();
     let mut data: Vec<Data> = Vec::new();
 
-    let delimiter = ":=";
     for line in lines {
         if !line.contains(delimiter) {
             continue;
